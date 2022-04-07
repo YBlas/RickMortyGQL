@@ -1,26 +1,33 @@
-import React from 'react';
+import React, { FC, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Layout from './containers/Layout';
+import Characters from './components/characters';
+import Index from './components';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+} from '@apollo/client';
 
-function App() {
+const client = new ApolloClient({
+  uri: 'https://rickandmortyapi.com/graphql',
+  cache: new InMemoryCache(),
+});
+
+const App: FC = () => {
+
+  const [pagina, setPagina] = useState(1);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <ApolloProvider client={client}>
+        <Characters page={pagina} />
+        <Index page={pagina} changePage={setPagina} />
+      </ApolloProvider>
+    </Layout>
   );
 }
+
 
 export default App;

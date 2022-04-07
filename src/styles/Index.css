@@ -1,0 +1,32 @@
+.Index {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 70px;
+}
+
+button {
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+pre {
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.LastPageIndicator {
+    display: flex;
+    flex-direction: row;
+}
+
+.FirstPageIndicator {
+    display: flex;
+    flex-direction: row;
+}
