@@ -44,7 +44,7 @@ const Index: FC<IndexProps> = ({ page, changePage }) => {
         if (IN > 2) {
             return (
                 <div className="FirstPageIndicator">
-                    <pre onClick={() => { changePage(data!.characters.info.pages) }}>{1}</pre>
+                    <pre onClick={() => { changePage(1) }}>{1}</pre>
                     <pre>...</pre>
                 </div>
             )
